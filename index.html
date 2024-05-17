@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Componentistica PC</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function calcolaTotale() {
+            let totale = 0;
+            const prezzi = document.querySelectorAll('.prezzo');
+            prezzi.forEach(prezzo => {
+                const quantita = prezzo.closest('tr').querySelector('.quantita').value;
+                totale += parseFloat(prezzo.innerText) * quantita;
+            });
+            document.getElementById('totale').innerText = totale.toFixed(2);
+        }
+    </script>
+</head>
+<body>
+    <h1>Il mio carrello - Componentistica PC</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Codice Prodotto</th>
+                <th>Descrizione</th>
+                <th>Quantità</th>
+                <th>Immagine</th>
+                <th>Prezzo Unitario(€)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>CPU123</td>
+                <td>Processore Intel i9</td>
+                <td><input type="number" class="quantita" value="1" onchange="calcolaTotale()"></td>
+                <td><img src="images/cpu.jpg" alt="Processore" class="immagine"></td>
+                <td class="prezzo">400.00</td>
+            </tr>
+            <tr>
+                <td>RAM456</td>
+                <td>Memoria RAM 16GB</td>
+                <td><input type="number" class="quantita" value="1" onchange="calcolaTotale()"></td>
+                <td><img src="images/ram.jpg" alt="RAM" class="immagine"></td>
+                <td class="prezzo">150.00</td>
+            </tr>
+            <tr>
+                <td>SSD789</td>
+                <td>SSD 1TB</td>
+                <td><input type="number" class="quantita" value="1" onchange="calcolaTotale()"></td>
+                <td><img src="images/ssd.jpg" alt="SSD" class="immagine"></td>
+                <td class="prezzo">120.00</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>Totale: €<span id="totale">670.00</span></p>
+    <button onclick="location.href='rete.html'">Vai alla rete cablata</button>
+</body>
+</html>
