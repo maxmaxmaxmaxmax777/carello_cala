@@ -16,7 +16,6 @@ h1 {
     animation: wave 2s infinite;
 }
 
-
 table {
     width: 100%;
     border-collapse: collapse;
@@ -35,8 +34,28 @@ th {
 }
 
 .immagine {
-    width: 50px;
+    width: 200px; /* Aumenta la larghezza delle immagini */
     height: auto;
+    position: relative;
+    cursor: pointer;
+}
+
+.immagine:hover + .zoom {
+    display: block;
+}
+
+.zoom {
+    display: none;
+    position: absolute;
+    width: 400px; /* Dimensione dell'immagine ingrandita */
+    height: auto;
+    top: 0;
+    left: 220px; /* Distanza dall'immagine originale */
+    border: 1px solid #ddd;
+    background-color: white;
+    z-index: 10;
+    padding: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 button {

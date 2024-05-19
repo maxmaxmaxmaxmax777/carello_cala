@@ -15,6 +15,24 @@
             });
             document.getElementById('totale').innerText = totale.toFixed(2);
         }
+
+        function impostaQuantitaMinima() {
+            const quantitaInputs = document.querySelectorAll('.quantita');
+            quantitaInputs.forEach(input => {
+                input.min = 1;
+                input.addEventListener('input', function() {
+                    if (this.value < 1) {
+                        this.value = 1;
+                    }
+                    calcolaTotale();
+                });
+            });
+        }
+
+        window.onload = function() {
+            impostaQuantitaMinima();
+            calcolaTotale();
+        }
     </script>
 </head>
 <body>
@@ -22,34 +40,125 @@
     <table>
         <thead>
             <tr>
+                <th>Immagine Prodotto</th>
                 <th>Codice Prodotto</th>
                 <th>Descrizione</th>
                 <th>Quantità</th>
-                <th>Immagine</th>
-                <th>Prezzo Unitario(€)</th>
+                <th>Prezzo Unitario (€)</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>CPU123</td>
-                <td>Processore Intel i9</td>
+                <td>
+                    <div style="position: relative;">
+                        <img src="images/cpu.jpg" alt="Processore" class="immagine">
+                        <div class="zoom">
+                            <img src="images/cpu.jpg" alt="Processore Ingrandito" style="width: 100%;">
+                        </div>
+                    </div>
+                </td>
+                <td>CPU234</td>
+                <td>AMD Processore Ryzen 7 7800X3D, Tecnologia 3D VCache, 8 Core/16 Thread senza Limiti, Architettura Zen 4, 104 M di Cache, 120 W di TDP, AMD Socket 5, DDR5 e PCIe 5.0</td>
                 <td><input type="number" class="quantita" value="1" onchange="calcolaTotale()"></td>
-                <td><img src="images/cpu.jpg" alt="Processore" class="immagine"></td>
-                <td class="prezzo">400.00</td>
+                <td class="prezzo">375.00</td>
             </tr>
             <tr>
-                <td>RAM456</td>
-                <td>Memoria RAM 16GB</td>
+                <td>
+                    <div style="position: relative;">
+                        <img src="images/ram.jpg" alt="RAM" class="immagine">
+                        <div class="zoom">
+                            <img src="images/ram.jpg" alt="RAM Ingrandito" style="width: 100%;">
+                        </div>
+                    </div>
+                </td>
+                <td>RAM467</td>
+                <td>CORSAIR VENGEANCE RGB DDR5 RAM 32GB (2x16GB) 6000MHz CL36 Intel XMP Compatibile iCUE Memoria per Computer - Nero (CMH32GX5M2E6000C36)</td>
                 <td><input type="number" class="quantita" value="1" onchange="calcolaTotale()"></td>
-                <td><img src="images/ram.jpg" alt="RAM" class="immagine"></td>
-                <td class="prezzo">150.00</td>
+                <td class="prezzo">123.17</td>
             </tr>
             <tr>
+                <td>
+                    <div style="position: relative;">
+                        <img src="images/ssd.jpg" alt="SSD" class="immagine">
+                        <div class="zoom">
+                            <img src="images/ssd.jpg" alt="SSD Ingrandito" style="width: 100%;">
+                        </div>
+                    </div>
+                </td>
                 <td>SSD789</td>
-                <td>SSD 1TB</td>
+                <td>Silicon Power 1TB XS70 Nvme PCIe Gen4 M.2 2280 Internal Gaming SSD W/R Up to 7,300 MB/6,000/s, w/DRAM Cache (SP01KGBP44XS7005)</td>
                 <td><input type="number" class="quantita" value="1" onchange="calcolaTotale()"></td>
-                <td><img src="images/ssd.jpg" alt="SSD" class="immagine"></td>
-                <td class="prezzo">120.00</td>
+                <td class="prezzo">86.99</td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="position: relative;">
+                        <img src="images/case.jpg" alt="Case" class="immagine">
+                        <div class="zoom">
+                            <img src="images/case.jpg" alt="Case Ingrandito" style="width: 100%;">
+                        </div>
+                    </div>
+                </td>
+                <td>CAS012</td>
+                <td>Lian-Li Lancool 216 RGB - Custodia per computer ATX Mid Tower, in acciaio e vetro temperato, 2 ventole ARGB da 160 mm, colore: Nero</td>
+                <td><input type="number" class="quantita" value="1" onchange="calcolaTotale()"></td>
+                <td class="prezzo">120.37</td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="position: relative;">
+                        <img src="images/psu.jpg" alt="Alimentatore" class="immagine">
+                        <div class="zoom">
+                            <img src="images/psu.jpg" alt="Alimentatore Ingrandito" style="width: 100%;">
+                        </div>
+                    </div>
+                </td>
+                <td>PSU345</td>
+                <td>MSI MAG A750GL PCIE5 Alimentatore 750W, 80 Plus Gold, completamente modulare, ATX 3.0, supporto GPU PCIe 5.0, ventola FDB da 120 mm, Full-Bridge LLC, cavi neri piatti</td>
+                <td><input type="number" class="quantita" value="1" onchange="calcolaTotale()"></td>
+                <td class="prezzo">145.00</td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="position: relative;">
+                        <img src="images/gpu.jpg" alt="Scheda Video" class="immagine">
+                        <div class="zoom">
+                            <img src="images/gpu.jpg" alt="Scheda Video Ingrandito" style="width: 100%;">
+                        </div>
+                    </div>
+                </td>
+                <td>GPU678</td>
+                <td>Sapphire 11323-02-20G Pulse AMD Radeon RX 7900 XT Scheda grafica da gioco con 20GB GDDR6, AMD RDNA 3</td>
+                <td><input type="number" class="quantita" value="1" onchange="calcolaTotale()"></td>
+                <td class="prezzo">804.65</td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="position: relative;">
+                        <img src="images/dissipatore.jpg" alt="Dissipatore" class="immagine">
+                        <div class="zoom">
+                            <img src="images/dissipatore.jpg" alt="Dissipatore Ingrandito" style="width: 100%;">
+                        </div>
+                    </div>
+                </td>
+                <td>DIS901</td>
+                <td>DeepCool LS720S ZERO DARK Dissipatore Liquido 360mm Raffreddamento Liquido PC, Pompa di 4a Gen con Blocco Testurizzato, 3000w TDP, 3x 120mm Ventole PWM, LGA1700 e AM5 Compatibile, 5 Anni di Garanzia</td>
+                <td><input type="number" class="quantita" value="1" onchange="calcolaTotale()"></td>
+                <td class="prezzo">109.99</td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="position: relative;">
+                        <img src="images/scheda_madre.jpg" alt="Scheda Madre" class="immagine">
+                        <div class="zoom">
+                            <img src="images/scheda_madre.jpg" alt="Scheda Madre Ingrandito" style="width: 100%;">
+                        </div>
+                    </div>
+                </td>
+                <td>MTBRD234</td>
+                <td>ASUS TUF GAMING X670E-PLUS WIFI, Scheda Madre ATX, AMD X670, AMD AM5, DDR5, PCI 5.0, Realtek 2.5Gb Ethernet, WiFi 6E (802.11 ax), 4xM.2, 4xSATA 6GB/s, Realtek 7.1 Surround, Aura Sync RGB, Nero</td>
+                <td><input type="number" class="quantita" value="1" onchange="calcolaTotale()"></td>
+                <td class="prezzo">304.43</td>   
             </tr>
         </tbody>
     </table>

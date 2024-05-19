@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rete Cablata</title>
+    <title>Componentistica Rete Cablata</title>
     <link rel="stylesheet" href="style.css">
     <script>
         function calcolaTotale() {
@@ -15,41 +15,192 @@
             });
             document.getElementById('totale').innerText = totale.toFixed(2);
         }
+
+        function impostaQuantitaMinima() {
+            const quantitaInputs = document.querySelectorAll('.quantita');
+            quantitaInputs.forEach(input => {
+                input.min = 1;
+                input.addEventListener('input', function() {
+                    if (this.value < 1) {
+                        this.value = 1;
+                    }
+                    calcolaTotale();
+                });
+            });
+        }
+
+        window.onload = function() {
+            impostaQuantitaMinima();
+            calcolaTotale();
+        }
     </script>
 </head>
 <body>
-    <h1>Il mio carrello - Rete Cablata</h1>
+    <h1>Il mio carrello - Componentistica Rete Cablata</h1>
     <table>
         <thead>
             <tr>
+                <th>Immagine Prodotto</th>
                 <th>Codice Prodotto</th>
                 <th>Descrizione</th>
                 <th>Quantità</th>
-                <th>Immagine</th>
-                <th>Prezzo Unitario(€)</th>
+                <th>Prezzo Unitario (€)</th>
             </tr>
         </thead>
         <tbody>
             <tr>
+                <td>
+                    <div style="position: relative;">
+                        <img src="images/switch.jpg" alt="Switch" class="immagine">
+                        <div class="zoom">
+                            <img src="images/switch.jpg" alt="Switch Ingrandito" style="width: 100%;">
+                        </div>
+                    </div>
+                </td>
                 <td>SW123</td>
-                <td>Switch 8 porte</td>
+                <td>NETGEAR XS724EM Switch Smart Managed Plus a 24 Porte 10G/Multi-Gigabit, con 2 SFP+ 10G, Montaggio su Desktop/Rack</td>
                 <td><input type="number" class="quantita" value="1" onchange="calcolaTotale()"></td>
-                <td><img src="images/switch.jpg" alt="Switch" class="immagine"></td>
-                <td class="prezzo">70.00</td>
+                <td class="prezzo">2345.50</td>
             </tr>
             <tr>
+                <td>
+                    <div style="position: relative;">
+                        <img src="images/cavo.jpg" alt="Cavo Ethernet" class="immagine">
+                        <div class="zoom">
+                            <img src="images/cavo.jpg" alt="Cavo Ethernet Ingrandito" style="width: 100%;">
+                        </div>
+                    </div>
+                </td>
                 <td>CABL456</td>
-                <td>Cavo Ethernet 10m</td>
+                <td>Mr. Tronic Cavo Ethernet Cat 6 da 305m Bulk Cabel, Cavo di Rete LAN Cat 6 ad Alta Velocità Per Connessione Internet Veloce 1 Gbps – 250 MHz AWG24 Cavo Sfuso | Cavo UTP CCA (305 Metri, Grigio)</td>
                 <td><input type="number" class="quantita" value="1" onchange="calcolaTotale()"></td>
-                <td><img src="images/cavo.jpg" alt="Cavo Ethernet" class="immagine"></td>
-                <td class="prezzo">10.00</td>
+                <td class="prezzo">108.00</td>
             </tr>
             <tr>
+                <td>
+                    <div style="position: relative;">
+                        <img src="images/connettore.jpg" alt="Connettore RJ45" class="immagine">
+                        <div class="zoom">
+                            <img src="images/connettore.jpg" alt="Connettore RJ45 Ingrandito" style="width: 100%;">
+                        </div>
+                    </div>
+                </td>
                 <td>CONN789</td>
-                <td>Connettore RJ45</td>
-                <td><input type="number" class="quantita" value="10" onchange="calcolaTotale()"></td>
-                <td><img src="images/connettore.jpg" alt="Connettore" class="immagine"></td>
-                <td class="prezzo">5.00</td>
+                <td>Greluma 60 Pz Connettori RJ45 CAT6 Pass-through termina Spina terminale di rete placcata oro Ethernet, Smartphone</td>
+                <td><input type="number" class="quantita" value="1" onchange="calcolaTotale()"></td>
+                <td class="prezzo">9.99</td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="position: relative;">
+                        <img src="images/router.jpg" alt="Router" class="immagine">
+                        <div class="zoom">
+                            <img src="images/router.jpg" alt="Router Ingrandito" style="width: 100%;">
+                        </div>
+                    </div>
+                </td>
+                <td>ROUT012</td>
+                <td>MikroTik Cloud Core Router CCR2004-16G-2S+</td>
+                <td><input type="number" class="quantita" value="1" onchange="calcolaTotale()"></td>
+                <td class="prezzo">429.50</td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="position: relative;">
+                        <img src="images/patch.jpg" alt="Patch Panel" class="immagine">
+                        <div class="zoom">
+                            <img src="images/patch.jpg" alt="Patch Panel Ingrandito" style="width: 100%;">
+                        </div>
+                    </div>
+                </td>
+                <td>PAT789</td>
+                <td>deleyCON CAT6 Patch Panel 24 Porte del Desktop 19 Pollici Montaggio Rack Assemblaggio del Server 24x RJ45 Schermato TIA568A TIA568B - Nero</td>
+                <td><input type="number" class="quantita" value="1" onchange="calcolaTotale()"></td>
+                <td class="prezzo">61.94</td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="position: relative;">
+                        <img src="images/patche.jpg" alt="Cavo Patch Ethernet" class="immagine">
+                        <div class="zoom">
+                            <img src="images/patche.jpg" alt="Cavo Patch Ethernet Ingrandito" style="width: 100%;">
+                        </div>
+                    </div>
+                </td>
+                <td>PATE789</td>
+                <td>Amazon Basics Cavo patch Ethernet di Cat6 con connettori RJ45, 1.5m (confezione da 1), Nero</td>
+                <td><input type="number" class="quantita" value="1" onchange="calcolaTotale()"></td>
+                <td class="prezzo">5.34</td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="position: relative;">
+                        <img src="images/presa.jpg" alt="Presa Muro" class="immagine">
+                        <div class="zoom">
+                            <img src="images/presa.jpg" alt="Switch Ingrandito" style="width: 100%;">
+                        </div>
+                    </div>
+                </td>
+                <td>PRE173</td>
+                <td>DEBFLEX , presa RJ-45 - Presa Ethernet - Blocco jack - presa RJ12-45 cat. 6 - Presa Ethernet a parete - Presa RJ45 serie Diam 2 - FTP bianca</td>
+                <td><input type="number" class="quantita" value="1" onchange="calcolaTotale()"></td>
+                <td class="prezzo">10.77</td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="position: relative;">
+                        <img src="images/canalina.jpg" alt="Canalina" class="immagine">
+                        <div class="zoom">
+                            <img src="images/canalina.jpg" alt="Canalina Ingrandito" style="width: 100%;">
+                        </div>
+                    </div>
+                </td>
+                <td>CN749</td>
+                <td>D-Line Nascondi Cavi, Canaline Per Impianti Elettrici, Passacavi Tv, Coprifili - 10 X 40Cm Lunghezza Per Pacco, Bianco, 40 x 3 x 1.5 cm, 690 grammi</td>
+                <td><input type="number" class="quantita" value="1" onchange="calcolaTotale()"></td>
+                <td class="prezzo">21.99</td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="position: relative;">
+                        <img src="images/tasselli.jpg" alt="Tasselli" class="immagine">
+                        <div class="zoom">
+                            <img src="images/tasselli.jpg" alt="Tasselli Ingrandito" style="width: 100%;">
+                        </div>
+                    </div>
+                </td>
+                <td>TAS589</td>
+                <td>Fischer Vaschetta 500 Tasselli SX Plus 6mm con Vite + Forbici Ergonomiche + Punta Trapano SDS Plus, 570210</td>
+                <td><input type="number" class="quantita" value="1" onchange="calcolaTotale()"></td>
+                <td class="prezzo">43.90</td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="position: relative;">
+                        <img src="images/rack.jpg" alt="Rack" class="immagine">
+                        <div class="zoom">
+                            <img src="images/rack.jpg" alt="Rack Ingrandito" style="width: 100%;">
+                        </div>
+                    </div>
+                </td>
+                <td>RCK783</td>
+                <td>Link LK1907UN Armadio Rack 19" 6 Unità da Muro per Reti 350 X 540 X 450 mm, Nero</td>
+                <td><input type="number" class="quantita" value="1" onchange="calcolaTotale()"></td>
+                <td class="prezzo">120.98</td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="position: relative;">
+                        <img src="images/multi.jpg" alt="Multipresa da Rack" class="immagine">
+                        <div class="zoom">
+                            <img src="images/multi.jpg" alt="Multipresa da Rack Ingrandito" style="width: 100%;">
+                        </div>
+                    </div>
+                </td>
+                <td>MLPR269</td>
+                <td>Link LK10053 Multipresa da Rack 19" 9 Prese Universali con Interruttore Spina Italiana 16A</td>
+                <td><input type="number" class="quantita" value="1" onchange="calcolaTotale()"></td>
+                <td class="prezzo">25.86</td>
             </tr>
         </tbody>
     </table>
