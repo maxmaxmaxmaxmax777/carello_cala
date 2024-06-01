@@ -6,6 +6,7 @@ body {
     padding: 20px;
     background-color: #f8f9fa;
     color: #333;
+    position: relative; /* Aggiungi questa regola */
 }
 
 h1 {
@@ -34,7 +35,7 @@ th {
 }
 
 .immagine {
-    width: 200px; /* Aumenta la larghezza delle immagini */
+    width: 200px;
     height: auto;
     position: relative;
     cursor: pointer;
@@ -47,10 +48,10 @@ th {
 .zoom {
     display: none;
     position: absolute;
-    width: 400px; /* Dimensione dell'immagine ingrandita */
+    width: 400px;
     height: auto;
     top: 0;
-    left: 220px; /* Distanza dall'immagine originale */
+    left: 220px;
     border: 1px solid #ddd;
     background-color: white;
     z-index: 10;
@@ -68,4 +69,42 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+
+.payment-methods {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.payment-methods h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.payment-icons img {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.center {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.success-message {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.success-message h1 {
+    color: green;
+}
+
+.success-message p {
+    font-size: 1.2em;
 }
